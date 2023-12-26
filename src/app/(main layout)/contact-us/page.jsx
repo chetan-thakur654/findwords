@@ -12,7 +12,7 @@ export const metadata = {
 };
 export default function Contact() {
   return (
-    <section className="contact-us">
+    <section className={styles["contact-us"]}>
       <h1>Contact FindWords.co</h1>
 
       <div className="content">

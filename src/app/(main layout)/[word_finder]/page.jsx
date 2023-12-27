@@ -46,7 +46,11 @@ export default function WordFinder({ params }) {
             {`That’s why we created the ${lNum} Letter Words Finder, a simple tool that
             helps you find any ${lNum} letter word in seconds.`}
           </p>
-          {wordsData ? <WordList words={wordsData} /> : "oooops !!!!"}
+          {wordsData ? (
+            <WordList words={wordsData} />
+          ) : (
+            <h2>{`Soon , We will Update ${lNum} letter words !`}</h2>
+          )}
         </section>
         <hr />
         <section>

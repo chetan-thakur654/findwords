@@ -1,6 +1,5 @@
 export const getParamsData = (params) => {
-  const data = params
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
-  return [data[0], data];
+  const num = params.split("-");
+  const data = num.join(" ");
+  return [num[0], data];
 };

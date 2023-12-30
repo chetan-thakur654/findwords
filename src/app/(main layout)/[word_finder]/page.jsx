@@ -6,6 +6,7 @@ import { aToz } from "../../../../data/a-z";
 import { getParamsData } from "../../../../utility/getParamsData";
 import { mainPages } from "../../../../data/mainPages";
 import { words } from "../../../../data/words";
+import { starts_ends_words } from "../../../../data/starts_ends_with";
 
 export async function generateMetadata({ params }) {
   const [lNum, pageTitle] = getParamsData(params.word_finder);
@@ -29,7 +30,7 @@ export default function WordFinder({ params }) {
   // Getting filtered data
   const filterData = mainPages.filter((page) => page.name != pageTitle);
 
-  const wordsData = words[`${lNum}`];
+  const wordsData = starts_ends_words[`${lNum}`];
 
   return (
     <div className={styles.home}>
@@ -47,7 +48,7 @@ export default function WordFinder({ params }) {
             helps you find any ${lNum} letter word in seconds.`}
           </p>
           {wordsData ? (
-            <WordList words={wordsData} />
+            <WordList data={{ lNum, starts_ends_with: null }} />
           ) : (
             <h2>{`Soon , We will Update ${lNum} letter words !`}</h2>
           )}
@@ -160,7 +161,7 @@ export default function WordFinder({ params }) {
               <h3>Ends with</h3>
               <div className={styles.atoz}>
                 {aToz.map((word) => (
-                  <Link href={`${params.word_finder}/starts-with-${word}`}>
+                  <Link href={`${params.word_finder}/ends-with-${word}`}>
                     <span>{word.toUpperCase()}</span>
                   </Link>
                 ))}

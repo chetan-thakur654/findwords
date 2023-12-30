@@ -16,22 +16,38 @@ export default function Footer() {
         </div>
         <ul className={styles.footerLinks}>
           <li>
-            <Link href="#" className={styles.footerLink}>
+            <Link
+              href="https://www.facebook.com/profile.php?id=61555172695373"
+              className={styles.footerLink}
+              target="_blank"
+            >
               <FaFacebookF />
             </Link>
           </li>
           <li>
-            <Link href="#" className={styles.footerLink}>
+            <Link
+              href="https://www.instagram.com/findwords.co/"
+              className={styles.footerLink}
+              target="_blank"
+            >
               <FaInstagram />
             </Link>
           </li>
           <li>
-            <Link href="#" className={styles.footerLink}>
+            <Link
+              href="https://twitter.com/find_words3650"
+              className={styles.footerLink}
+              target="_blank"
+            >
               <FaTwitter />
             </Link>
           </li>
           <li>
-            <Link href="#" className={styles.footerLink}>
+            <Link
+              href="www.linkedin.com/in/findwords-co-0a71052a7"
+              className={styles.footerLink}
+              target="_blank"
+            >
               <FaLinkedinIn />
             </Link>
           </li>

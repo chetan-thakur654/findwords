@@ -35,8 +35,7 @@ export default function WordFinder({ params }) {
 
   const [lNum, pageTitle] = getParamsData(word_finder);
 
-  // Getting filtered data
-  const words = starts_ends_words[`${lNum}`][`${starts_ends_with}`];
+  const checkWords = starts_ends_words[lNum]?.[starts_ends_with];
 
   return (
     <div className={styles.home}>
@@ -61,10 +60,10 @@ export default function WordFinder({ params }) {
               " "
             )} in seconds.`}
           </p>
-          {words ? (
-            <WordList words={words} />
+          {checkWords ? (
+            <WordList data={{ lNum, starts_ends_with }} />
           ) : (
-            <h2>{`Sorry ! We don't have words that ${starts_ends_with
+            <h2>{`Sorry ! We don't have ${lNum} letter words that ${starts_ends_with
               .split("-")
               .join(" ")} in our database at the moment`}</h2>
           )}

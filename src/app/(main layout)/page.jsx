@@ -8,7 +8,6 @@ import { words } from "../../../data/words";
 
 export default function Home() {
   const filterData = mainPages.filter((page) => page.link !== "");
-  console.log(filterData);
   return (
     <div className={styles.home}>
       <div className={styles.left}>
@@ -24,7 +23,7 @@ export default function Home() {
             That’s why we created the 5 Letter Words Finder, a simple tool that
             helps you find any 5 letter word in seconds.
           </p>
-          {words && <WordList words={words["5"]} />}
+          {words && <WordList data={{ lNum: "5", start_ends_with: null }} />}
         </section>
         <hr />
         <section>

@@ -1,20 +1,22 @@
 import { SlArrowRight } from "react-icons/sl";
 import Link from "next/link";
-import styles from "../page.module.css";
-import WordList from "../../../../components/wordlist/wordList";
-import { aToz } from "../../../../data/a-z";
-import { getParamsData } from "../../../../utility/getParamsData";
-import { mainPages } from "../../../../data/mainPages";
-import { words } from "../../../../data/words";
+import styles from "../../../page.module.css";
+import WordList from "../../../../../../components/wordlist/wordList";
+import { aToz } from "../../../../../../data/a-z";
+import { getParamsData } from "../../../../../../utility/getParamsData";
+import { mainPages } from "../../../../../../data/mainPages";
+import { words } from "../../../../../../data/words";
 
 export async function generateMetadata({ params }) {
-  const [lNum, pageTitle] = getParamsData(params.word_finder);
+  const { word_finder, letter } = params;
+
+  const [lNum, pageTitle] = getParamsData(word_finder);
 
   return {
-    title: `${lNum} letter words finder | Wordle Solver | Unscrambler Words Helper | Words with Friends Solver`,
-    description: `Find ${lNum} letter words for Wordle, Words with Friends, unscrambler Helper , Anagram and more`,
+    title: `${lNum} Letter Words With ${letter.toUpperCase()} in The Middle`,
+    description: `Find all ${lNum} letter words with ${letter.toLowerCase} in the middle for Wordle, Words with Friends, unscrambler, Crosswords, Puzzles and more`,
     alternates: {
-      canonical: `https://findwords.co/${params.word_finder}`,
+      canonical: `https://findwords.co/${word_finder}/in-middle/${letter}`,
       // languages: {
       //   'en-US': '/en-US',
       //   'de-DE': '/de-DE',
@@ -23,36 +25,42 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function WordFinder({ params }) {
-  const { word_finder } = params;
+export default function InMiddle({ params }) {
+  const { word_finder, letter } = params;
 
-  const [lNum, pageTitle] = getParamsData(params.word_finder);
+  // filtering params to get lNum
+  const [lNum, pageTitle] = getParamsData(word_finder);
 
-  // Getting filtered data
-  const filterData = mainPages.filter((page) => page.link != word_finder);
+  // filter words that starts with particuler letters
+  const NoOfletters = words.find((word) => word.noOfLetters == lNum);
+  const data = NoOfletters.words.filter((word) => {
+    const slicedWord = word.slice(1, word.length - 1);
+    const lowerCaseWord = slicedWord.toLowerCase();
 
-  // const wordsData = starts_ends_words[`${lNum}`];
-  const data = words.find((word) => word.noOfLetters == lNum);
+    return lowerCaseWord.includes(letter);
+  });
 
   return (
     <div className={styles.home}>
       <div className={styles.left}>
         <section>
-          <h1>{`${lNum} Letter Words Finder`}</h1>
+          <h1>
+            {`${lNum} Letter Words With ${letter.toUpperCase()} in The Middle `}
+          </h1>
           <p>
-            {`If you’re a fan of word games, scrabble, words with friends, wordle, puzzles, anagrams, you know how
-            frustrating it can be to find a ${lNum} letter word that fits your needs.
-            Sometimes, you have a clue, a pattern, or a list of letters, but you
-            can’t think of a word that matches them.`}
+            {`Find all ${lNum} letter words with ${letter.toUpperCase()} in the middle for Wordle, Words with Friends, scrambler, anagrams and more`}
           </p>
           <p>
-            {`That’s why we created the ${lNum} Letter Words Finder, a simple tool that
-            helps you find any ${lNum} letter word in seconds.`}
+            {`We have created the ${lNum} Letter Words Finder, a simple tool that helps
+            you find any ${lNum} letter words with  ${letter.toUpperCase()} in the middle in seconds.`}
           </p>
-          {data ? (
-            <WordList data={data.words} />
+          {data.length > 0 ? (
+            <WordList data={data} />
           ) : (
-            <h2>{`Soon , We will Update ${lNum} letter words !`}</h2>
+            <h2>
+              {` Sorry ! We don't have ${lNum} letter words with ${letter.toUpperCase()} in the middle in our database at the
+              moment`}
+            </h2>
           )}
         </section>
         <hr />
@@ -197,8 +205,8 @@ export default function WordFinder({ params }) {
             <h2>Other Words Finder</h2>
             <div className="finder-list">
               <ul>
-                {filterData &&
-                  filterData.map(({ name, link, data }) => (
+                {mainPages &&
+                  mainPages.map(({ name, link, data }) => (
                     <li>
                       <Link href={`/${link}`}>
                         <div>

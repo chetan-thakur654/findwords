@@ -1,20 +1,26 @@
 import { SlArrowRight } from "react-icons/sl";
 import Link from "next/link";
-import styles from "../page.module.css";
-import WordList from "../../../../components/wordlist/wordList";
-import { aToz } from "../../../../data/a-z";
-import { getParamsData } from "../../../../utility/getParamsData";
-import { mainPages } from "../../../../data/mainPages";
-import { words } from "../../../../data/words";
+import styles from "../../../page.module.css";
+import WordList from "../../../../../../components/wordlist/wordList";
+import { aToz } from "../../../../../../data/a-z";
+import { getParamsData } from "../../../../../../utility/getParamsData";
+import { mainPages } from "../../../../../../data/mainPages";
+import { words } from "../../../../../../data/words";
 
 export async function generateMetadata({ params }) {
-  const [lNum, pageTitle] = getParamsData(params.word_finder);
+  const { word_finder, letter } = params;
+
+  // const newWords = starts_ends_with.replace(/^(starts|ends)/, (match) =>
+  //   match === "starts" ? "starting" : "ending"
+  // );
+
+  const [lNum, pageTitle] = getParamsData(word_finder);
 
   return {
-    title: `${lNum} letter words finder | Wordle Solver | Unscrambler Words Helper | Words with Friends Solver`,
-    description: `Find ${lNum} letter words for Wordle, Words with Friends, unscrambler Helper , Anagram and more`,
+    title: `${lNum} Letter Words Ending With ${letter.toUpperCase()}`,
+    description: `Find all ${lNum} letter words that ends with letter ${letter.toLowerCase} for Wordle, Words with Friends, unscrambler and more`,
     alternates: {
-      canonical: `https://findwords.co/${params.word_finder}`,
+      canonical: `https://findwords.co/${word_finder}/ends-with/${letter}`,
       // languages: {
       //   'en-US': '/en-US',
       //   'de-DE': '/de-DE',
@@ -23,99 +29,102 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function WordFinder({ params }) {
-  const { word_finder } = params;
+export default function EndsWith({ params }) {
+  const { word_finder, letter } = params;
 
-  const [lNum, pageTitle] = getParamsData(params.word_finder);
+  // filtering params to get lNum
+  const [lNum, pageTitle] = getParamsData(word_finder);
 
-  // Getting filtered data
-  const filterData = mainPages.filter((page) => page.link != word_finder);
-
-  // const wordsData = starts_ends_words[`${lNum}`];
-  const data = words.find((word) => word.noOfLetters == lNum);
+  // filter words that starts with particuler letters
+  const NoOfletters = words.find((word) => word.noOfLetters == lNum);
+  const data = NoOfletters.words.filter((word) =>
+    word.toLowerCase().endsWith(letter)
+  );
 
   return (
     <div className={styles.home}>
       <div className={styles.left}>
         <section>
-          <h1>{`${lNum} Letter Words Finder`}</h1>
+          <h1>
+            {`${lNum} Letter Words That Ends With ${letter.toUpperCase()} `}{" "}
+          </h1>
           <p>
-            {`If you’re a fan of word games, scrabble, words with friends, wordle, puzzles, anagrams, you know how
-            frustrating it can be to find a ${lNum} letter word that fits your needs.
-            Sometimes, you have a clue, a pattern, or a list of letters, but you
-            can’t think of a word that matches them.`}
+            {`Find all ${lNum} letter words ending with ${letter.toUpperCase()} for Wordle, Words with Friends, scrambler, anagrams and more`}
           </p>
           <p>
-            {`That’s why we created the ${lNum} Letter Words Finder, a simple tool that
-            helps you find any ${lNum} letter word in seconds.`}
+            {`We have created the ${lNum} Letter Words Finder, a simple tool that helps
+            you find any ${lNum} letter words that starts with letter ${letter.toUpperCase()}  in seconds.`}
           </p>
-          {data ? (
-            <WordList data={data.words} />
+          {data.length > 0 ? (
+            <WordList data={data} />
           ) : (
-            <h2>{`Soon , We will Update ${lNum} letter words !`}</h2>
+            <h2>
+              {` Sorry ! We don't have ${lNum} letter words that ends with ${letter.toUpperCase()} in our database at the
+              moment`}
+            </h2>
           )}
         </section>
         <hr />
         <section>
           <div className={styles["start-with"]}>
-            <h2>3 Letter Words Starts With These Letters</h2>
+            <h2>3 Letter Words Ends With These Letters</h2>
             <p>
               Explore the wonders of 3 letter words! Find amazing words that
-              begin with any letter you choose.
+              ending with any letter you choose.
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/3-letter-words/starts-with/${word}`}>
+                <Link href={`/3-letter-words/ends-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
             </div>
           </div>
           <div className={styles["start-with"]}>
-            <h2>4 Letter Words Starts With These Letters</h2>
+            <h2>4 Letter Words Ends With These Letters</h2>
             <p>
               Unlock the power of 4 letter magic! Discover a treasure trove of
-              captivating words starting with specific letters.
+              captivating words ending with specific letters.
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/4-letter-words/starts-with/${word}`}>
+                <Link href={`/4-letter-words/ends-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
             </div>
           </div>
           <div className={styles["start-with"]}>
-            <h2>5 Letter Words Starts With These Letters</h2>
+            <h2>5 Letter Words Ends With These Letters</h2>
             <p>
               Unlock a world of possibilities with 5 letter words. Expand your
               vocabulary, conquer word games, and unleash your creativity.
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/5-letter-words/starts-with/${word}`}>
+                <Link href={`/5-letter-words/ends-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
             </div>
           </div>
           <div className={styles["start-with"]}>
-            <h2>6 Letter Words Starts With These Letters</h2>
+            <h2>6 Letter Words ends With These Letters</h2>
             <p>
-              Seeking 6 letter words starting with specific letters? Dive into a
+              Seeking 6 letter words ending with specific letters ? Dive into a
               captivating world of vocabulary, conquer word games, and express
               yourself with newfound power!
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/6-letter-words/starts-with/${word}`}>
+                <Link href={`/6-letter-words/ends-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
             </div>
           </div>
           <div className={styles["start-with"]}>
-            <h2>7 Letter Words Starts With These Letters</h2>
+            <h2>7 Letter Words Ends With These Letters</h2>
             <p>
               Discover a world of possibilities with 7 letter words starting
               with specific letters. Expand your vocabulary, conquer word games,
@@ -123,21 +132,21 @@ export default function WordFinder({ params }) {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/7-letter-words/starts-with/${word}`}>
+                <Link href={`/7-letter-words/ends-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
             </div>
           </div>
           <div className={styles["start-with"]}>
-            <h2>8 Letter Words Starts With These Letters</h2>
+            <h2>8 Letter Words Ends With These Letters</h2>
             <p>
               Find all 8 letter words for puzzles, scrabble and words with
-              friends that starts with these letters.
+              friends that ends with these letters.
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/8-letter-words/starts-with/${word}`}>
+                <Link href={`/8-letter-words/ends-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -197,8 +206,8 @@ export default function WordFinder({ params }) {
             <h2>Other Words Finder</h2>
             <div className="finder-list">
               <ul>
-                {filterData &&
-                  filterData.map(({ name, link, data }) => (
+                {mainPages &&
+                  mainPages.map(({ name, link, data }) => (
                     <li>
                       <Link href={`/${link}`}>
                         <div>

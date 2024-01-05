@@ -72,7 +72,7 @@
   display: inline-block;
 }
 
-.right .start-with:nth-child(2) {
+.right .start-with:not(:last-child) {
   margin-bottom: 20px;
 }
 

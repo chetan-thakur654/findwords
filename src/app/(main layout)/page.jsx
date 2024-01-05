@@ -5,25 +5,28 @@ import WordList from "../../../components/wordlist/wordList";
 import { aToz } from "../../../data/a-z";
 import { mainPages } from "../../../data/mainPages";
 import { words } from "../../../data/words";
+// import { words } from "../../../data/words";
 
 export default function Home() {
   const filterData = mainPages.filter((page) => page.link !== "");
+  const data = words.find((word) => word.noOfLetters == "5");
   return (
     <div className={styles.home}>
       <div className={styles.left}>
         <section>
           <h1>5 Letter Words Finder</h1>
           <p>
-            If you’re a fan of word games, puzzles, or anagrams, you know how
-            frustrating it can be to find a 5 letter word that fits your needs.
-            Sometimes, you have a clue, a pattern, or a list of letters, but you
-            can’t think of a word that matches them.
+            If you’re a fan of word games like wordle, word with friends,
+            scrabble, puzzles, or anagrams, you know how frustrating it can be
+            to find a 5 letter word that fits your needs. Sometimes, you have a
+            clue, a pattern, or a list of letters, but you can’t think of a word
+            that matches them.
           </p>
           <p>
             That’s why we created the 5 Letter Words Finder, a simple tool that
             helps you find any 5 letter word in seconds.
           </p>
-          {words && <WordList data={{ lNum: "5", start_ends_with: null }} />}
+          <WordList data={data.words} />
         </section>
         <hr />
         <section>
@@ -35,7 +38,7 @@ export default function Home() {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/3-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/3-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -49,7 +52,7 @@ export default function Home() {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/4-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/4-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -63,7 +66,7 @@ export default function Home() {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/5-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/5-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -78,7 +81,7 @@ export default function Home() {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/6-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/6-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -93,7 +96,7 @@ export default function Home() {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/7-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/7-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -107,7 +110,7 @@ export default function Home() {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/8-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/8-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -120,20 +123,40 @@ export default function Home() {
           <div className="filter-words">
             <h2>Filter 5 Letter Words</h2>
             <div className={styles["start-with"]}>
-              <h3>Starts with</h3>
+              <h3>Starts With a Letter</h3>
               <div className={styles.atoz}>
                 {aToz.map((word) => (
-                  <Link href={`/5-letter-words-finder/starts-with-${word}`}>
+                  <Link href={`/5-letter-words/starts-with/${word}`}>
                     <span>{word.toUpperCase()}</span>
                   </Link>
                 ))}
               </div>
             </div>
             <div className={styles["start-with"]}>
-              <h3>Ends with</h3>
+              <h3>Ends With a Letter</h3>
               <div className={styles.atoz}>
                 {aToz.map((word) => (
-                  <Link href={`/5-letter-words-finder/ends-with-${word}`}>
+                  <Link href={`/5-letter-words/ends-with/${word}`}>
+                    <span>{word.toUpperCase()}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className={styles["start-with"]}>
+              <h3>Containing a Letter</h3>
+              <div className={styles.atoz}>
+                {aToz.map((word) => (
+                  <Link href={`/5-letter-words/with-exactly/${word}`}>
+                    <span>{word.toUpperCase()}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className={styles["start-with"]}>
+              <h3>Letter in the Middle</h3>
+              <div className={styles.atoz}>
+                {aToz.map((word) => (
+                  <Link href={`/5-letter-words/in-middle/${word}`}>
                     <span>{word.toUpperCase()}</span>
                   </Link>
                 ))}

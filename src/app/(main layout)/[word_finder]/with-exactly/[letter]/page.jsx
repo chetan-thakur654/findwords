@@ -1,27 +1,22 @@
 import { SlArrowRight } from "react-icons/sl";
 import Link from "next/link";
-import styles from "../../page.module.css";
-import WordList from "../../../../../components/wordlist/wordList";
-import { aToz } from "../../../../../data/a-z";
-import { getParamsData } from "../../../../../utility/getParamsData";
-import { mainPages } from "../../../../../data/mainPages";
-import { starts_ends_words } from "../../../../../data/starts_ends_with";
+import styles from "../../../page.module.css";
+import WordList from "../../../../../../components/wordlist/wordList";
+import { aToz } from "../../../../../../data/a-z";
+import { getParamsData } from "../../../../../../utility/getParamsData";
+import { mainPages } from "../../../../../../data/mainPages";
+import { words } from "../../../../../../data/words";
 
 export async function generateMetadata({ params }) {
-  const { word_finder, starts_ends_with } = params;
-  const newWords = starts_ends_with.replace(/^(starts|ends)/, (match) =>
-    match === "starts" ? "starting" : "ending"
-  );
+  const { word_finder, letter } = params;
 
   const [lNum, pageTitle] = getParamsData(word_finder);
 
   return {
-    title: `${lNum} letter words ${newWords.split("-").join(" ")} `,
-    description: `Find all ${lNum} letter words that ${starts_ends_with
-      .split("-")
-      .join(" ")} for Wordle, Words with Friends, unscrambler and more`,
+    title: `${lNum} Letter Words With ${letter.toUpperCase()}`,
+    description: `Find all ${lNum} letter words containing ${letter.toLowerCase} for Wordle, Words with Friends, unscrambler, Crosswords, Puzzles and more`,
     alternates: {
-      canonical: `https://findwords.co/${word_finder}/${starts_ends_with}`,
+      canonical: `https://findwords.co/${word_finder}/with-exactly/${letter}`,
       // languages: {
       //   'en-US': '/en-US',
       //   'de-DE': '/de-DE',
@@ -30,42 +25,37 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function WordFinder({ params }) {
-  const { word_finder, starts_ends_with } = params;
+export default function WithExactly({ params }) {
+  const { word_finder, letter } = params;
 
+  // filtering params to get lNum
   const [lNum, pageTitle] = getParamsData(word_finder);
 
-  const checkWords = starts_ends_words[lNum]?.[starts_ends_with];
+  // filter words that starts with particuler letters
+  const NoOfletters = words.find((word) => word.noOfLetters == lNum);
+  const data = NoOfletters.words.filter((word) =>
+    word.toLowerCase().includes(letter)
+  );
 
   return (
     <div className={styles.home}>
       <div className={styles.left}>
         <section>
-          <h1>{`${lNum} Letter Words That ${params.starts_ends_with
-            .replace(/-/g, " ")
-            .replace(/\b\w/g, (c) => c.toUpperCase())}`}</h1>
+          <h1>{`${lNum} Letter Words Containing ${letter.toUpperCase()} `} </h1>
           <p>
-            {`Word games are fun and challenging, especially when you need to find
-            ${lNum} letter words that ${params.starts_ends_with.replace(
-              /-/g,
-              " "
-            )}. We will show you
-            some of the best words for anagrams, words with friends scrabble, wordle, and crossword
-            puzzles.`}
+            {`Find all ${lNum} letter words with ${letter.toUpperCase()} for Wordle, Words with Friends, scrambler, anagrams and more`}
           </p>
           <p>
-            {`We have created the ${lNum} Letter Words Finder, a simple tool that
-            helps you find any ${lNum} letter words that ${params.starts_ends_with.replace(
-              /-/g,
-              " "
-            )} in seconds.`}
+            {`We have created the ${lNum} Letter Words Finder, a simple tool that helps
+            you find any ${lNum} letter words that contains ${letter.toUpperCase()} in seconds.`}
           </p>
-          {checkWords ? (
-            <WordList data={{ lNum, starts_ends_with }} />
+          {data.length > 0 ? (
+            <WordList data={data} />
           ) : (
-            <h2>{`Sorry ! We don't have ${lNum} letter words that ${starts_ends_with
-              .split("-")
-              .join(" ")} in our database at the moment`}</h2>
+            <h2>
+              {` Sorry ! We don't have ${lNum} letter words with ${letter.toUpperCase()} in our database at the
+              moment`}
+            </h2>
           )}
         </section>
         <hr />
@@ -78,7 +68,7 @@ export default function WordFinder({ params }) {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/3-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/3-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -92,7 +82,7 @@ export default function WordFinder({ params }) {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/4-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/4-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -106,7 +96,7 @@ export default function WordFinder({ params }) {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/5-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/5-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -121,7 +111,7 @@ export default function WordFinder({ params }) {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/6-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/6-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -136,7 +126,7 @@ export default function WordFinder({ params }) {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/7-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/7-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -150,7 +140,7 @@ export default function WordFinder({ params }) {
             </p>
             <div className={styles.atoz}>
               {aToz.map((word) => (
-                <Link href={`/8-letter-words-finder/starts-with-${word}`}>
+                <Link href={`/8-letter-words/starts-with/${word}`}>
                   {word.toUpperCase()}
                 </Link>
               ))}
@@ -163,20 +153,40 @@ export default function WordFinder({ params }) {
           <div className="filter-words">
             <h2>{`Filter ${lNum} Letter Words`}</h2>
             <div className={styles["start-with"]}>
-              <h3>Starts with</h3>
+              <h3>Starts With a Letter</h3>
               <div className={styles.atoz}>
                 {aToz.map((word) => (
-                  <Link href={`/${word_finder}/starts-with-${word}`}>
+                  <Link href={`/${word_finder}/starts-with/${word}`}>
                     <span>{word.toUpperCase()}</span>
                   </Link>
                 ))}
               </div>
             </div>
             <div className={styles["start-with"]}>
-              <h3>Ends with</h3>
+              <h3>Ends With a Letter</h3>
               <div className={styles.atoz}>
                 {aToz.map((word) => (
-                  <Link href={`/${word_finder}/ends-with-${word}`}>
+                  <Link href={`/${word_finder}/ends-with/${word}`}>
+                    <span>{word.toUpperCase()}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className={styles["start-with"]}>
+              <h3>Containing a Letter</h3>
+              <div className={styles.atoz}>
+                {aToz.map((word) => (
+                  <Link href={`/${word_finder}/with-exactly/${word}`}>
+                    <span>{word.toUpperCase()}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className={styles["start-with"]}>
+              <h3>Letter in the Middle</h3>
+              <div className={styles.atoz}>
+                {aToz.map((word) => (
+                  <Link href={`/${word_finder}/in-middle/${word}`}>
                     <span>{word.toUpperCase()}</span>
                   </Link>
                 ))}

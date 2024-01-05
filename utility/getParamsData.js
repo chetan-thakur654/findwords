@@ -1,5 +1,5 @@
-export const getParamsData = (params) => {
+export const getParamsData = (params, startEndsWith) => {
   const num = params.split("-");
-  const data = num.join(" ");
-  return [num[0], data];
+
+  return [num[0]];
 };

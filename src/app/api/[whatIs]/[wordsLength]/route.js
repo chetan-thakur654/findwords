@@ -3,7 +3,7 @@ import { words } from "../../../../../data/words";
 import { getWords } from "../../../../../apiUtility/routHelper";
 
 export async function GET(NextRequest, { params }) {
-  const { whatIs, wordsLength } = params;
+  const { wordsLength } = params;
 
   try {
     const lengthMatch = await words.find(

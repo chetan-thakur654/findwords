@@ -4,11 +4,11 @@ import { fetchAllWords } from "../../../../utility/fetchAllWords";
 import { RelatedWords } from "../../../../components/relatedWordsSection/relatedWords";
 
 export default async function Home() {
-  const data = await fetchAllWords(5);
-  const { finalData } = data;
-
-  const lNum = 5;
+  const lNum = "5";
   const word_finder = "5-letter-words";
+
+  const data = await fetchAllWords(lNum);
+  const { finalData } = data;
 
   return (
     <>
@@ -25,7 +25,7 @@ export default async function Home() {
           That’s why we created the 5 Letter Words Finder, a simple tool that
           helps you find any 5 letter word in seconds.
         </p>
-        {finalData && finalData.length > 0 && <WordList data={finalData} />}
+        {finalData?.length > 0 && <WordList data={finalData} />}
       </section>
       <hr />
       <section>

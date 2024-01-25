@@ -814,7 +814,7 @@ export const whatIs = [
   "/5-letter-words/ends-with/ez",
   "/5-letter-words/ends-with/gen",
   "/5-letter-words/ends-with/uad",
-  "a /5-letter-words/ends-with/ze",
+  "/5-letter-words/ends-with/ze",
   "/5-letter-words/ends-with/bods",
   "/5-letter-words/ends-with/vim",
   "/5-letter-words/ends-with/lar",

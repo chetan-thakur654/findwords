@@ -6,7 +6,7 @@ export const metadata = {
   title:
     "5 letter words finder | Wordle Solver | Unscrambler Words | Words with Friends Solver",
   description:
-    "Find 5 letter words for Wordle, Words with Friends, unscrambler and more",
+    "Find 5 letter words for Wordle, Words with Friends, Unscrambler, Scrabble Solver and more",
   icons: {
     icon: "/icon.ico",
   },

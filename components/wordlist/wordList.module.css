@@ -1,8 +1,8 @@
 .wordList {
   margin-top: 30px;
   display: grid;
-  /* grid-template-columns: repeat(6, 1fr); */
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  /* grid-template-columns: repeat(2, 2fr); */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
 
@@ -52,4 +52,20 @@
 .pagination span {
   margin: 0 10px;
   font-size: 1rem;
+}
+
+@media (max-width: 468px) {
+  .wordList {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .wordList li {
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1.875rem;
+    font-weight: 400;
+    opacity: 0.9;
+    /* color: rgb(0, 162, 255); */
+    /* text-decoration: underline; */
+  }
 }

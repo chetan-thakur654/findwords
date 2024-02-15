@@ -3029,7 +3029,7 @@ export const whatIs = [
   "/10-letter-words/starts-and-ends/ma-e",
   "/10-letter-words/starts-and-ends/b-b",
   "/10-letter-words/starts-and-ends/s-y",
-  "10-letter-words/starts-and-ends/b-t",
+  "/10-letter-words/starts-and-ends/b-t",
   "/10-letter-words/starts-and-ends/b-e",
   "/10-letter-words/starts-and-ends/r-e",
   "/10-letter-words/starts-and-ends/e-i",

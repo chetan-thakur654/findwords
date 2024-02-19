@@ -38,11 +38,26 @@
   /* border: 2px solid blue; */
 }
 
+.right .filter-words {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 15px 15px 0px 0px;
+  overflow: hidden;
+  text-align: center;
+}
+.right .other-words-finder {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), -2px -2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 15px 15px 0px 0px;
+  overflow: hidden;
+}
 .right h2 {
   margin: 0px;
   margin-bottom: 10px;
+  text-align: center;
   font-size: 1.5rem;
   font-weight: 800;
+  background-color: black;
+  color: white;
+  padding: 10px;
 }
 .right h3 {
   font-size: 1.1rem;
@@ -90,7 +105,6 @@
 }
 .right .other-words-finder a:hover {
   background-color: rgb(0, 162, 255, 0.4);
-  border-radius: 10px;
 }
 
 .right .other-words-finder h3 {
@@ -106,11 +120,20 @@
   padding-left: 0;
   gap: 0;
 }
+.left .form-container {
+  display: none;
+}
 
 @media (max-width: 1024px) {
   .home {
     display: flex;
     flex-direction: column;
     gap: 50px;
+  }
+  .sidebar-item:nth-child(1) {
+    display: none;
+  }
+  .left .form-container {
+    display: block;
   }
 }

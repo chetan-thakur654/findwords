@@ -12,6 +12,7 @@ const WordFinderForm = ({ onSearch }) => {
     "with-exactly": "",
     numberOfLetters: "5-letter-words",
   });
+  const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
 
   const router = useRouter();
 
@@ -74,74 +75,76 @@ const WordFinderForm = ({ onSearch }) => {
   };
 
   return (
-    <div className={styles.wordFinderForm}>
-      <label>
-        Starts with
-        <input
-          type="text"
-          name="starts-with"
-          value={searchOptions.starts}
-          onChange={handleInputChange}
-        />
-      </label>
+    <form className={styles.wordFinderForm} onSubmit={handleSearch}>
+      <input
+        type="text"
+        name="starts-with"
+        value={searchOptions.starts}
+        placeholder="Starts with"
+        onChange={handleInputChange}
+      />
 
-      <label>
-        In The Middle
-        <input
-          type="text"
-          name="in-middle"
-          value={searchOptions.middle}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        Ends with
-        <input
-          type="text"
-          name="ends-with"
-          value={searchOptions.ends}
-          onChange={handleInputChange}
-        />
-      </label>
+      <input
+        type="text"
+        name="in-middle"
+        value={searchOptions.middle}
+        placeholder="In the middle"
+        onChange={handleInputChange}
+      />
 
-      <label>
-        Contains Letter - (Anywhere)
+      <input
+        type="text"
+        name="ends-with"
+        value={searchOptions.ends}
+        placeholder="Ends with"
+        onChange={handleInputChange}
+      />
+
+      <div
+        className={`${styles.advancedSearchFields} ${
+          showAdvancedSearch ? styles.show : ""
+        }`}
+      >
         <input
           type="text"
           name="containing-letters"
           value={searchOptions.contains}
+          placeholder="Contains letters (anywhere)"
           onChange={handleInputChange}
         />
-      </label>
 
-      <label>
-        Contains Exactly - (Anywhere)
         <input
           type="text"
           name="with-exactly"
           value={searchOptions.containsExactly}
+          placeholder="Contains exactly (anywhere)"
           onChange={handleInputChange}
         />
-      </label>
+      </div>
+      <select
+        name="numberOfLetters"
+        value={searchOptions.numberOfLetters}
+        onChange={handleInputChange}
+      >
+        <option value="">5 letter words</option>
+        {[...Array(15).keys()].map((num) => (
+          <option key={num + 2} value={`${num + 2}-letter-words`}>
+            {num + 2} letter words
+          </option>
+        ))}
+      </select>
 
-      <label>
-        Words Length
-        <select
-          name="numberOfLetters"
-          value={searchOptions.numberOfLetters}
-          onChange={handleInputChange}
-        >
-          <option value="">5 letter words</option>
-          {[...Array(15).keys()].map((num) => (
-            <option key={num + 2} value={`${num + 2}-letter-words`}>
-              {num + 2} letter words
-            </option>
-          ))}
-        </select>
-      </label>
+      <button type="submit" className={styles.searchButton}>
+        Search
+      </button>
 
-      <button onClick={handleSearch}>Search</button>
-    </div>
+      <button
+        className={`${styles.advancedSearchButton}`}
+        onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}
+      >
+        {showAdvancedSearch ? "Hide Advanced Search" : "Show Advanced Search"}
+      </button>
+    </form>
   );
 };
 

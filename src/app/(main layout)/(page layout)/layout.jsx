@@ -15,16 +15,21 @@ export default function layout({ children }) {
         crossorigin="anonymous"
       ></Script>
       <div className={styles.home}>
-        <div className={styles.left}>{children}</div>
+        <div className={styles.left}>
+          <div className={styles["form-container"]}>
+            <WordFinderForm />
+          </div>
+          {children}
+        </div>
         <aside className={styles.right}>
-          <div className="sidebar-Item">
-            <div className="filter-words">
+          <div className={styles["sidebar-item"]}>
+            <div className={styles["filter-words"]}>
               <h2>Advanced Word Search</h2>
               <WordFinderForm />
             </div>
           </div>
           <hr />
-          <div className="sidebar-Item">
+          <div className={styles["sidebar-item"]}>
             <div className={styles["other-words-finder"]}>
               <h2>Other Words Finder</h2>
               <div className="finder-list">
@@ -34,7 +39,7 @@ export default function layout({ children }) {
                       <Link href={`/${link}`}>
                         <div>
                           <h3>{name}</h3>
-                          <span>{data}</span>
+                          {/* <span>{data}</span> */}
                         </div>
                         <div>
                           <SlArrowRight />

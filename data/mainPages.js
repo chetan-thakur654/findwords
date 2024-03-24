@@ -16,7 +16,7 @@ export const mainPages = [
   },
   {
     name: "5 Letter Words Finder",
-    link: "",
+    link: "5-letter-words",
     data: "Discover words like HELAN & OLUNE",
   },
   {

@@ -1,34 +1,46 @@
-import WordList from "../../../../components/wordlist/wordList";
-import { aToz } from "../../../../data/a-z";
-import { fetchAllWords } from "../../../../utility/fetchAllWords";
-import { RelatedWords } from "../../../../components/relatedWordsSection/relatedWords";
+import WordList from "../../../components/wordlist/wordList";
+import { fetchAllWords } from "../../../utility/fetchAllWords";
+import WordFinderForm from "../../../components/form/form";
+import styles from "./page.module.css";
 
+export const metadata = {
+  title: "Word Finder For Wordle, Scrabble , Words With Friends And More",
+  description:
+    "Find words for Wordle, Words with Friends, Scrabble and Other Word Games.",
+  icons: {
+    icon: "/icon.ico",
+  },
+  alternates: {
+    canonical: "https://wordfinder.in/",
+  },
+};
 export default async function Home() {
-  const lNum = "5";
-  const word_finder = "5-letter-words";
-
-  const data = await fetchAllWords(lNum);
-  const { finalData } = data;
-
   return (
     <>
       <section>
-        <h1>5 Letter Words Finder</h1>
+        <h1>
+          Find Words For Wordle, Srabble , Words With Friends And Other Word
+          Games
+        </h1>
         <p>
           If you’re a fan of word games like wordle, word with friends,
           scrabble, puzzles, or anagrams, you know how frustrating it can be to
-          find a 5 letter word that fits your needs. Sometimes, you have a clue,
-          a pattern, or a list of letters, but you can’t think of a word that
+          find a word that fits your needs. Sometimes, you have a clue, a
+          pattern, or a list of letters, but you can’t think of a word that
           matches them.
         </p>
         <p>
-          That’s why we created the 5 Letter Words Finder, a simple tool that
-          helps you find any 5 letter word in seconds.
+          That’s why we created this word finder tool, that helps you find any
+          word in seconds.
         </p>
-        {finalData?.length > 0 && <WordList data={finalData} />}
+        {/* {finalData?.length > 0 && <WordList data={finalData} />} */}
       </section>
-      <hr />
       <section>
+        <div className={styles.form_container}>
+          <WordFinderForm />
+        </div>
+      </section>
+      {/* <section>
         <RelatedWords
           title={`${lNum} Letter Words Starting With These Letters`}
           description={`Find All ${lNum} Letter Words that Starts With These Letters -  for Wordle, Words With Friends, Scrabble, Unscrambler, Crosswords, Puzzles And More`}
@@ -57,7 +69,7 @@ export default async function Home() {
           filterType={"in-middle"}
           aToz={aToz}
         />
-      </section>
+      </section> */}
     </>
   );
 }

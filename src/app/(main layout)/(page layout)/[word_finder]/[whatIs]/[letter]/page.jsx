@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
     title: metaData ? metaData.title : error.message,
     description: metaData ? metaData.description : error.message,
     alternates: {
-      canonical: `https://findwords.co/${word_finder}/${whatIs}/${letter}`,
+      canonical: `https://wordfinder.in/${word_finder}/${whatIs}/${letter}`,
     },
   };
 }
@@ -49,7 +49,7 @@ export default async function ContainingLetters({ params }) {
           <h2>{`Ooops ! ${pageData?.title} -  Not Found`}</h2>
         )}
       </section>
-      <hr />
+      {/* <hr />
       <section>
         <RelatedWords
           title={`${lNum} Letter Words Starting With These Letters`}
@@ -79,7 +79,7 @@ export default async function ContainingLetters({ params }) {
           filterType={"in-middle"}
           aToz={aToz}
         />
-      </section>
+      </section> */}
     </>
   );
 }

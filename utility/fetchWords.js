@@ -5,7 +5,9 @@ export const fetchWords = async ({ whatIs, lNum, letter }) => {
   try {
     const response = await fetch(
       `http://localhost:3000/api/${whatIs}/${lNum}/${letter}`,
-      { signal, next: { revalidate: 72000 } }
+      { signal, cache: "no-store" }
+      // `http://localhost:3000/api/${whatIs}/${lNum}/${letter}`,
+      // { signal, next: { revalidate: 72000 } }
     );
 
     if (!response.ok) {

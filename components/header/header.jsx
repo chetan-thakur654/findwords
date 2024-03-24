@@ -16,7 +16,7 @@ export default function Header() {
       <div className={styles.navContent}>
         <Link href="/" className={styles.siteLogoLink}>
           <Image
-            src="/findwords.png"
+            src="/wordfinder.png"
             alt="Logo"
             width={150}
             height={40}

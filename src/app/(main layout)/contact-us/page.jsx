@@ -1,19 +1,19 @@
 import styles from "./contactUs.module.css";
 export const metadata = {
-  title: "Contact us | FindWords.co",
+  title: "Contact us | WordFinder.in",
   description:
-    "Get in touch with FindWords.co. Have questions or suggestions? Reach out through email or visit us. We're here to help!",
+    "Get in touch with WordFinder.in, Have questions or suggestions? Reach out through email or visit us. We're here to help!",
   icons: {
     icon: "/icon.ico",
   },
   alternates: {
-    canonical: "https://findwords.co/contact-us",
+    canonical: "https://wordfinder.in/contact-us",
   },
 };
 export default function Contact() {
   return (
     <section className={styles["contact-us"]}>
-      <h1>Contact FindWords.co</h1>
+      <h1>Contact WordFinder.in</h1>
 
       <div className="content">
         <p>
@@ -26,7 +26,7 @@ export default function Contact() {
           <p>Feel free to reach out to us through the following channels:</p>
           <ul>
             <li>
-              Email: <a href="mailto:info@findwords.co">info@findwords.co</a>
+              Email: <a href="mailto:info@wordfinder.in">info@wordfinder.in</a>
             </li>
             {/* Add more contact details as needed */}
           </ul>

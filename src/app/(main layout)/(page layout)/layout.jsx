@@ -4,16 +4,10 @@ import WordFinderForm from "../../../../components/form/form";
 import { mainPages } from "../../../../data/mainPages";
 import { SlArrowRight } from "react-icons/sl";
 import Link from "next/link";
-import Script from "next/script";
 
 export default function layout({ children }) {
   return (
     <>
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6954377897433069"
-        crossorigin="anonymous"
-      ></Script>
       <div className={styles.home}>
         <div className={styles.left}>
           <div className={styles["form-container"]}>

@@ -12,9 +12,9 @@ export default function Footer() {
     <footer className={styles.footerContainer}>
       <div className={styles.footerContent}>
         <div className={styles.footerInfo}>
-          &copy; {new Date().getFullYear()} FindWords.co
+          &copy; {new Date().getFullYear()} WordFinder.in
         </div>
-        <ul className={styles.footerLinks}>
+        {/* <ul className={styles.footerLinks}>
           <li>
             <Link
               href="https://www.facebook.com/profile.php?id=61555172695373"
@@ -51,7 +51,7 @@ export default function Footer() {
               <FaLinkedinIn />
             </Link>
           </li>
-        </ul>
+        </ul> */}
       </div>
     </footer>
   );

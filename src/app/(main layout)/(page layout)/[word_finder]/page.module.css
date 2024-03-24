@@ -1,0 +1,15 @@
+.list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.list li {
+  font-size: 1.3125rem;
+  line-height: 1.875rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  font-variant-numeric: unset;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

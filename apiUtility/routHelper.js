@@ -41,7 +41,6 @@ export const getWords = {
   },
 
   "with-exactly": async (lengthMatch, letter) => {
-    const letterArray = letter.split("-");
     const finalData = lengthMatch.words.filter((word) =>
       word.toLowerCase().includes(letter)
     );
@@ -93,6 +92,17 @@ export const getWords = {
 
     return finalData;
   },
+
+  "first-letter": async (lengthMatch, letter) => {
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      return lowerCaseWord[0] == letter[0];
+    });
+
+    return finalData;
+  },
+
   "second-letter": async (lengthMatch, letter) => {
     const finalData = lengthMatch.words.filter((word) => {
       const lowerCaseWord = word.toLowerCase();
@@ -102,6 +112,7 @@ export const getWords = {
 
     return finalData;
   },
+
   "third-letter": async (lengthMatch, letter) => {
     const finalData = lengthMatch.words.filter((word) => {
       const lowerCaseWord = word.toLowerCase();
@@ -111,11 +122,72 @@ export const getWords = {
 
     return finalData;
   },
+
   "fourth-letter": async (lengthMatch, letter) => {
     const finalData = lengthMatch.words.filter((word) => {
       const lowerCaseWord = word.toLowerCase();
 
       return lowerCaseWord[3] == letter[0];
+    });
+
+    return finalData;
+  },
+
+  "fifth-letter": async (lengthMatch, letter) => {
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      return lowerCaseWord[4] == letter[0];
+    });
+
+    return finalData;
+  },
+
+  "sixth-letter": async (lengthMatch, letter) => {
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      return lowerCaseWord[5] == letter[0];
+    });
+
+    return finalData;
+  },
+
+  "seventh-letter": async (lengthMatch, letter) => {
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      return lowerCaseWord[6] == letter[0];
+    });
+
+    return finalData;
+  },
+
+  "eighth-letter": async (lengthMatch, letter) => {
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      return lowerCaseWord[7] == letter[0];
+    });
+
+    return finalData;
+  },
+
+  "ninth-letter": async (lengthMatch, letter) => {
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      return lowerCaseWord[8] == letter[0];
+    });
+
+    return finalData;
+  },
+
+  "last-letter": async (lengthMatch, letter) => {
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      return lowerCaseWord[lowerCaseWord.length - 1] == letter[0];
     });
 
     return finalData;

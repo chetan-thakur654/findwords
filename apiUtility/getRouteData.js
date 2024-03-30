@@ -31,13 +31,13 @@ export const getData = {
   },
   "with-exactly": (lNum, letter) => {
     const pageData = {
-      title: `${lNum} Letter Words Containing ${letter.toUpperCase()} `,
+      title: `${lNum} Letter Words With ${letter.toUpperCase()} `,
       description: [
-        `List of all ${lNum} letter words with ${letter.toUpperCase()} for Wordle, Words with Friends, Scrabble and more`,
+        `List of all ${lNum} letter words having ${letter.toUpperCase()} for Wordle, Words with Friends, Scrabble and more`,
       ],
     };
     const metaData = {
-      title: `${lNum} Letter Words With ${letter.toUpperCase()} `,
+      title: `${lNum} Letter Words having ${letter.toUpperCase()} `,
       description: `List of all ${lNum} letter words containing ${letter.toUpperCase()} for Wordle, Words with Friends, Scrabble and more`,
     };
 
@@ -127,6 +127,22 @@ export const getData = {
 
     return { pageData, metaData };
   },
+
+  "first-letter": (lNum, letter) => {
+    const pageData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As First Letter `,
+      description: [
+        `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as first letter for Wordle, Words with Friends, Unscrambler,Scrabble and more`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As First Letter `,
+      description: `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as first letter for Wordle, Words with Friends, Unscrambler, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
   "second-letter": (lNum, letter) => {
     const pageData = {
       title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Second Letter `,
@@ -141,6 +157,7 @@ export const getData = {
 
     return { pageData, metaData };
   },
+
   "third-letter": (lNum, letter) => {
     const pageData = {
       title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Third Letter `,
@@ -155,6 +172,7 @@ export const getData = {
 
     return { pageData, metaData };
   },
+
   "fourth-letter": (lNum, letter) => {
     const pageData = {
       title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Fourth Letter `,
@@ -165,6 +183,96 @@ export const getData = {
     const metaData = {
       title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Fourth Letter `,
       description: `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as fourth letter for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "fifth-letter": (lNum, letter) => {
+    const pageData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Fifth Letter `,
+      description: [
+        `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as fifth letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Fifth Letter `,
+      description: `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as fifth letter for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "sixth-letter": (lNum, letter) => {
+    const pageData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Sixth Letter `,
+      description: [
+        `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as sixth letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Sixth Letter `,
+      description: `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as sixth letter for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "seventh-letter": (lNum, letter) => {
+    const pageData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Seventh Letter `,
+      description: [
+        `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as seventh letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Seventh Letter `,
+      description: `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as seventh letter for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "eighth-letter": (lNum, letter) => {
+    const pageData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Eighth Letter `,
+      description: [
+        `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as eighth letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Eighth Letter `,
+      description: `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as eighth letter for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "ninth-letter": (lNum, letter) => {
+    const pageData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Ninth Letter `,
+      description: [
+        `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as ninth letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Ninth Letter `,
+      description: `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as ninth letter for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "last-letter": (lNum, letter) => {
+    const pageData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Last Letter `,
+      description: [
+        `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as last letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letter[0].toUpperCase()} As Last Letter `,
+      description: `List of all ${lNum} letter words with ${letter[0].toUpperCase()} as last letter for Wordle, Words with Friends, Scrabble and more.`,
     };
 
     return { pageData, metaData };

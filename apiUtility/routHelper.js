@@ -77,6 +77,7 @@ export const getWords = {
 
     return finalData;
   },
+
   "middle-and-ends": async (lengthMatch, letter) => {
     const letterArray = letter.split("-");
     const finalData = lengthMatch.words.filter((word) => {
@@ -87,6 +88,226 @@ export const getWords = {
       return (
         slicedWord.includes(letterArray[0]) &&
         lowerCaseWord.endsWith(letterArray[1])
+      );
+    });
+
+    return finalData;
+  },
+
+  "starts-and-exactly": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+      const slicedWord = lowerCaseWord.slice(letterArray[0].length);
+
+      // Check if all required letters are present in the word
+      return (
+        slicedWord.includes(letterArray[1]) &&
+        lowerCaseWord.startsWith(letterArray[0])
+      );
+    });
+
+    return finalData;
+  },
+
+  "starts-and-second": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord.startsWith(letterArray[0]) &&
+        lowerCaseWord[1] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "starts-and-third": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord.startsWith(letterArray[0]) &&
+        lowerCaseWord[2] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "starts-and-fourth": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord.startsWith(letterArray[0]) &&
+        lowerCaseWord[3] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "starts-and-fifth": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord.startsWith(letterArray[0]) &&
+        lowerCaseWord[4] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "first-and-second": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[0] == letterArray[0] && lowerCaseWord[1] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "first-and-third": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[0] == letterArray[0] && lowerCaseWord[2] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "first-and-fourth": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[0] == letterArray[0] && lowerCaseWord[3] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "first-and-last": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[0] == letterArray[0] &&
+        lowerCaseWord[lowerCaseWord.length - 1] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "second-and-third": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[1] == letterArray[0] && lowerCaseWord[2] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "second-and-fourth": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[1] == letterArray[0] && lowerCaseWord[3] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "second-and-last": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[1] == letterArray[0] &&
+        lowerCaseWord[lowerCaseWord.length - 1] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "third-and-fourth": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[2] == letterArray[0] && lowerCaseWord[3] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "third-and-last": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[2] == letterArray[0] &&
+        lowerCaseWord[lowerCaseWord.length - 1] == letterArray[1]
+      );
+    });
+
+    return finalData;
+  },
+
+  "fourth-and-last": async (lengthMatch, letter) => {
+    const letterArray = letter.split("-");
+    const finalData = lengthMatch.words.filter((word) => {
+      const lowerCaseWord = word.toLowerCase();
+
+      // Check if all required letters are present in the word
+      return (
+        lowerCaseWord[3] == letterArray[0] &&
+        lowerCaseWord[lowerCaseWord.length - 1] == letterArray[1]
       );
     });
 

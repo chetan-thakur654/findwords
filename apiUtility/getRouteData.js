@@ -111,6 +111,7 @@ export const getData = {
 
     return { pageData, metaData };
   },
+
   "middle-and-ends": (lNum, letter) => {
     const letterArray = letter.split("-");
 
@@ -123,6 +124,261 @@ export const getData = {
     const metaData = {
       title: `${lNum} Letter Words Ending With ${letterArray[1].toUpperCase()} And ${letterArray[0].toUpperCase()} In The Middle`,
       description: `List of all ${lNum} letter words ends with ${letterArray[1].toUpperCase()} and ${letterArray[0].toUpperCase()} in the middle, for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "starts-and-exactly": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words Starting With ${letterArray[0].toUpperCase()} And  Have ${letterArray[1].toUpperCase()} In Them`,
+      description: [
+        `List of all ${lNum} letter words start with ${letterArray[0].toUpperCase()} and contains ${letterArray[1].toUpperCase()} , for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words Starts With ${letterArray[0].toUpperCase()} And Have ${letterArray[1].toUpperCase()} In Them`,
+      description: `List of all ${lNum} letter words starting with ${letterArray[0].toUpperCase()} and contains ${letterArray[1].toUpperCase()}, for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "starts-and-second": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words Starting With ${letterArray[0].toUpperCase()} And  Second Letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words start with ${letterArray[0].toUpperCase()} and have ${letterArray[1].toUpperCase()} as second letter, for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words Starts With ${letterArray[0].toUpperCase()} And Have ${letterArray[1].toUpperCase()} as Second Letter`,
+      description: `List of all ${lNum} letter words starting with ${letterArray[0].toUpperCase()} and second  letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "starts-and-third": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words Starting With ${letterArray[0].toUpperCase()} And  third Letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words start with ${letterArray[0].toUpperCase()} and have ${letterArray[1].toUpperCase()} as third letter, for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words Starts With ${letterArray[0].toUpperCase()} And Have ${letterArray[1].toUpperCase()} as third Letter`,
+      description: `List of all ${lNum} letter words starting with ${letterArray[0].toUpperCase()} and third  letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "starts-and-fourth": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words Starting With ${letterArray[0].toUpperCase()} And  fourth Letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words start with ${letterArray[0].toUpperCase()} and have ${letterArray[1].toUpperCase()} as fourth letter, for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words Starts With ${letterArray[0].toUpperCase()} And Have ${letterArray[1].toUpperCase()} as fourth Letter`,
+      description: `List of all ${lNum} letter words starting with ${letterArray[0].toUpperCase()} and fourth  letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "starts-and-fifth": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words Starting With ${letterArray[0].toUpperCase()} And  fifth Letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words start with ${letterArray[0].toUpperCase()} and have ${letterArray[1].toUpperCase()} as fifth letter, for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words Starts With ${letterArray[0].toUpperCase()} And Have ${letterArray[1].toUpperCase()} as fifth Letter`,
+      description: `List of all ${lNum} letter words starting with ${letterArray[0].toUpperCase()} and fifth  letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "first-and-second": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With first letter ${letterArray[0].toUpperCase()} And  Second letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as first letter and ${letterArray[1].toUpperCase()} as second letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as First Letter And ${letterArray[1].toUpperCase()} as Third Letter`,
+      description: `List of all ${lNum} letter words with first letter ${letterArray[0].toUpperCase()} and second letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "first-and-third": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With first letter ${letterArray[0].toUpperCase()} And  third letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as first letter and ${letterArray[1].toUpperCase()} as third letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as First Letter And ${letterArray[1].toUpperCase()} as Third Letter`,
+      description: `List of all ${lNum} letter words with first letter ${letterArray[0].toUpperCase()} and third letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "first-and-fourth": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With first letter ${letterArray[0].toUpperCase()} And  fourth letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as first letter and ${letterArray[1].toUpperCase()} as fourth letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as First Letter And ${letterArray[1].toUpperCase()} as fourth Letter`,
+      description: `List of all ${lNum} letter words with first letter ${letterArray[0].toUpperCase()} and fourth letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "first-and-last": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With first letter ${letterArray[0].toUpperCase()} And  last letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as first letter and ${letterArray[1].toUpperCase()} as last letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as First Letter And ${letterArray[1].toUpperCase()} as last Letter`,
+      description: `List of all ${lNum} letter words with first letter ${letterArray[0].toUpperCase()} and last letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "second-and-third": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With Second Letter ${letterArray[0].toUpperCase()} And  third letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as second letter and ${letterArray[1].toUpperCase()} as third letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as second Letter And ${letterArray[1].toUpperCase()} as third Letter`,
+      description: `List of all ${lNum} letter words with second letter ${letterArray[0].toUpperCase()} and third letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "second-and-fourth": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With Second Letter ${letterArray[0].toUpperCase()} And  fourth letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as second letter and ${letterArray[1].toUpperCase()} as fourth letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as second Letter And ${letterArray[1].toUpperCase()} as fourth Letter`,
+      description: `List of all ${lNum} letter words with second letter ${letterArray[0].toUpperCase()} and fourth letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "second-and-last": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With Second Letter ${letterArray[0].toUpperCase()} And  last letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as second letter and ${letterArray[1].toUpperCase()} as last letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as second Letter And ${letterArray[1].toUpperCase()} as last Letter`,
+      description: `List of all ${lNum} letter words with second letter ${letterArray[0].toUpperCase()} and last letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "third-and-fourth": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With third Letter ${letterArray[0].toUpperCase()} And  fourth letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as third letter and ${letterArray[1].toUpperCase()} as fourth letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as third Letter And ${letterArray[1].toUpperCase()} as fourth Letter`,
+      description: `List of all ${lNum} letter words with third letter ${letterArray[0].toUpperCase()} and fourth letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "third-and-last": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With third Letter ${letterArray[0].toUpperCase()} And  last letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as third letter and ${letterArray[1].toUpperCase()} as last letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as third Letter And ${letterArray[1].toUpperCase()} as last Letter`,
+      description: `List of all ${lNum} letter words with third letter ${letterArray[0].toUpperCase()} and last letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
+    };
+
+    return { pageData, metaData };
+  },
+
+  "fourth-and-last": (lNum, letter) => {
+    const letterArray = letter.split("-");
+
+    const pageData = {
+      title: `${lNum} Letter Words With fourth Letter ${letterArray[0].toUpperCase()} And  last letter ${letterArray[1].toUpperCase()}`,
+      description: [
+        `List of all ${lNum} letter words with ${letterArray[0].toUpperCase()} as fourth letter and ${letterArray[1].toUpperCase()} as last letter for Wordle, Words with Friends, Scrabble and more.`,
+      ],
+    };
+    const metaData = {
+      title: `${lNum} Letter Words With ${letterArray[0].toUpperCase()} as fourth Letter And ${letterArray[1].toUpperCase()} as last Letter`,
+      description: `List of all ${lNum} letter words with fourth letter ${letterArray[0].toUpperCase()} and last letter ${letterArray[1].toUpperCase()} for Wordle, Words with Friends, Scrabble and more.`,
     };
 
     return { pageData, metaData };

@@ -7,9 +7,14 @@ export async function GET(NextRequest, { params }) {
   const { whatIs, wordsLength, letter } = params;
 
   try {
-    const lengthMatch = await words.find(
-      (item) => item.noOfLetters == wordsLength
-    );
+    let lengthMatch = {
+      words: [],
+    };
+    if (wordsLength == "all") {
+      words.forEach((word) => lengthMatch.words.push(...word.words));
+    } else {
+      lengthMatch = await words.find((item) => item.noOfLetters == wordsLength);
+    }
 
     if (!lengthMatch) {
       throw new Error(`oops! No Words Found`);
@@ -26,7 +31,11 @@ export async function GET(NextRequest, { params }) {
       throw new Error(`Ooops! No Words Found`);
     }
 
-    const { pageData, metaData } = await getData[whatIs](wordsLength, letter);
+    const { pageData, metaData } = await getData[whatIs](
+      wordsLength,
+      letter,
+      wordsData.length
+    );
 
     if (!pageData || !metaData) {
       throw new Error(`Ooops! No Words Found`);
